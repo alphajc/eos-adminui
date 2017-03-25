@@ -1,0 +1,40 @@
+{
+  "name": "eos-adminui",
+  "version": "0.0.1",
+  "description": "作为Saves项目的一个模块，该模块我将其命名为eos-adminui，主要功能是调用后台api为前端提供数据。",
+  "main": "./server.js",
+  "repository": {
+    "url": "git@github.com:gavin-chan/eos-adminui.git",
+    "type": "git"
+  },
+  "dependencies": {
+    "assert-plus": "^1.0.0",
+    "async": "^2.1.5",
+    "bunyan": "^1.8.9",
+    "mime": "^1.3.4",
+    "restify": "^4.3.0",
+    "trace-event": "^1.3.0",
+    "vue": "^2.2.5"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.0",
+    "bootstrap": "4.0.0-alpha.6",
+    "cross-env": "^3.2.4",
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
+    "vue-loader": "^11.3.3",
+    "vue-template-compiler": "^2.2.5",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "start": "node server.js | bunyan"
+  },
+  "author": "Gavin Chan <gavinchan267@gmail.com>",
+  "license": "MPL-2.0"
+}

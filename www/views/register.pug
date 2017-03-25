@@ -1,0 +1,111 @@
+//
+	Created by Gavin on 2017/1/13.
+extends layout
+block content
+	h1 管理员注册
+	main.register(role='main')
+		form(method='post', action='.')
+			fieldset
+				legend 基本信息
+				ul
+					li
+						label(for='username') 用户名
+						input(id='username', name='username', type='text', required)
+					li
+						label(for='name') 姓名
+						input(id='name', name='name', type='text', required)
+					li
+						label(for='email') 邮箱
+						input(id='email', name='email', type='email', required, x-moz-errormessage="Please specify a valid telephone number.")
+					li
+						label(for='tel') 联系方式
+						input(id='tel', name='tel', type='tel', required, x-moz-errormessage="Please specify a valid telephone number.")
+					li
+						label(for='password') 输入密码
+						input(id='password', name='password', type='password', required)
+					li
+						label(for='confirm-password') 确认密码
+						input(id='confirm-password', type='password', required)
+			fieldset
+				legend 其它信息
+				ul
+					li
+						label(for='male') 男
+						input(id='male', name='sex', type='radio', value='male', checked=)
+						label(for='female') 女
+						input(id='female', name='sex', type='radio', value='female')
+					li
+						label(for='birthday') 生日
+						input(id='birthday', name='birthday', type='date')
+					li
+						label(for='department') 部门
+						input(id='department', name='department', type='text')
+					li
+						label(for='company') 公司
+						input(id='company', name='company', type='text')
+			fieldset
+				legend 密保信息
+				ul
+					li
+						label(for='question1') 问题一
+						select(id='question1', name='question1')
+							option(value="-1") 请选择密保问题
+							option(value="1") 您母亲的姓名是？
+							option(value="2") 您配偶的生日是？
+							option(value="3") 您的学号（或工号）是？
+							option(value="4") 您母亲的生日是？
+							option(value="5") 您高中班主任的名字是？
+							option(value="6") 您父亲的姓名是？
+							option(value="7") 您小学班主任的名字是？
+							option(value="8") 您父亲的生日是？
+							option(value="9") 您配偶的姓名是？
+							option(value="10") 您初中班主任的名字是？
+							option(value="11") 您最熟悉的童年好友名字是？
+							option(value="12") 您最熟悉的学校宿舍室友名字是？
+							option(value="13") 对您影响最大的人名字是？
+					li
+						label(for='answer1') 答案
+						input(id='answer1', name='answer1', type='text')
+					li
+						label(for='question2') 问题二
+							select(id='question2', name='question2')
+								option(value="-1") 请选择密保问题
+								option(value="1") 您母亲的姓名是？
+								option(value="2") 您配偶的生日是？
+								option(value="3") 您的学号（或工号）是？
+								option(value="4") 您母亲的生日是？
+								option(value="5") 您高中班主任的名字是？
+								option(value="6") 您父亲的姓名是？
+								option(value="7") 您小学班主任的名字是？
+								option(value="8") 您父亲的生日是？
+								option(value="9") 您配偶的姓名是？
+								option(value="10") 您初中班主任的名字是？
+								option(value="11") 您最熟悉的童年好友名字是？
+								option(value="12") 您最熟悉的学校宿舍室友名字是？
+								option(value="13") 对您影响最大的人名字是？
+					li
+						label(for='answer2') 答案
+						input(id='answer2', name='answer2', type='text')
+					li
+						label(for='question3') 问题三
+							select(id='question3', name='question3')
+								option(value="-1") 请选择密保问题
+								option(value="1") 您母亲的姓名是？
+								option(value="2") 您配偶的生日是？
+								option(value="3") 您的学号（或工号）是？
+								option(value="4") 您母亲的生日是？
+								option(value="5") 您高中班主任的名字是？
+								option(value="6") 您父亲的姓名是？
+								option(value="7") 您小学班主任的名字是？
+								option(value="8") 您父亲的生日是？
+								option(value="9") 您配偶的姓名是？
+								option(value="10") 您初中班主任的名字是？
+								option(value="11") 您最熟悉的童年好友名字是？
+								option(value="12") 您最熟悉的学校宿舍室友名字是？
+								option(value="13") 对您影响最大的人名字是？
+					li
+						label(for='answer3') 答案
+						input(id='answer3', name='answer3', type='text')
+			.button
+				input(type='submit', value='注册')
+				input.reset(type='reset', value='重置')

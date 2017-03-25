@@ -1,0 +1,26 @@
+//
+	Created by Gavin on 2017/1/12.
+extends layout
+block content
+	main.login(role='main')
+		form(method='post', action='home')
+			fieldset
+				legend 用户登录
+				ul
+					li
+						label(for='username') 用户名
+						input(id='username', name='username', type='text')
+					li
+						label(for='password') 密码
+						input(id='password', name='password', type='password')
+					li
+						label(for='identifying_code') 验证码
+						input(id='identifying_code', name='identifying_code' type='text')
+				.img
+					img(src='', width='200px', height='50px')
+				.sub
+					a.forget(href='retrieve') 忘记密码？
+					a.register(href='register') 管理员注册
+				.button
+					input.submit(type='submit', value='登录')
+					input.reset(type='reset', value='重置')
