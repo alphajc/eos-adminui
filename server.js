@@ -2,7 +2,7 @@
  * Created by gavin on 3/25/17.
  */
 var path = require('path');
-var assert = require('assert-plus');
+var assert = require('assert');
 var fs = require('fs');
 var restify = require('restify');
 
@@ -25,7 +25,7 @@ var log = require('bunyan').createLogger({
 });
 
 
-log.info('Initializing AdminUI');
+log.info('初始化AdminUI');
 var adminui = require('./lib/adminui').createServer({
 	config: cfg,
 	log: log,
@@ -33,9 +33,9 @@ var adminui = require('./lib/adminui').createServer({
 });
 
 adminui.listen(function ready() {
-	log.info('Ready to rock!');
+	log.info('开始监听!');
 });
 
 process.on('uncaughtException', function preventOtherError(e) {
-	log.fatal(e, 'Uncaught Exception');
+	log.fatal(e, '未捕获的异常');
 });
