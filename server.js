@@ -33,7 +33,7 @@ var adminui = require('./lib/adminui').createServer({
 });
 
 adminui.listen(function ready() {
-	log.info('开始监听!');
+	log.info('--------------开始监听---------------');
 });
 
 process.on('uncaughtException', function preventOtherError(e) {
