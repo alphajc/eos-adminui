@@ -2,6 +2,9 @@
   "host": "0.0.0.0",
   "port": 4000,
   "sslport": 4443,
-  "ssl":{},
+  "ssl":{
+    "certificate": "/home/gavin/WebStormProjects/eos-adminui/etc/ssl/127.0.0.1.crt",
+    "key": "/home/gavin/WebStormProjects/eos-adminui/etc/ssl/127.0.0.1.key"
+  },
   "simulateLatency":true
 }
