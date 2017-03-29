@@ -1379,13 +1379,6 @@ enhanced-resolve@^3.0.0:
     object-assign "^4.0.1"
     tapable "^0.2.5"
 
-eos-mongo@beta:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/eos-mongo/-/eos-mongo-0.0.3.tgz#3c58e2b908de001be647d30dc456be732f6bd144"
-  dependencies:
-    assert-plus "^1.0.0"
-    mongoose "^4.9.2"
-
 errno@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.4.tgz#b896e23a9e5e8ba33871fc996abd3635fc9a1c7d"
@@ -2336,7 +2329,7 @@ mongodb@2.2.25:
     mongodb-core "2.1.9"
     readable-stream "2.1.5"
 
-mongoose@^4.9.2:
+mongoose:
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.9.2.tgz#df137675eed76a14dc1e6952ede54497c7547926"
   dependencies:
