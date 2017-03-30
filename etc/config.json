@@ -8,6 +8,10 @@
   },
   "mongo": {
     "host": "10.9.5.23",
-    "database": "eos"
-  }
+    "database": "eos",
+    "port": "",
+    "username": "",
+    "password": ""
+  },
+  "cache": "/home/gavin/eos-data"
 }
