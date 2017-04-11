@@ -1,10 +1,10 @@
 {
   "host": "0.0.0.0",
-  "port": 4000,
-  "sslport": 4443,
+  "port": 80,
+  "sslport": 443,
   "ssl":{
-    "certificate": "/home/gavin/WebStormProjects/eos-adminui/etc/ssl/127.0.0.1.crt",
-    "key": "/home/gavin/WebStormProjects/eos-adminui/etc/ssl/127.0.0.1.key"
+    "certificate": "/home/gavin/saves/eos-adminui/etc/ssl/10.9.5.6.crt",
+    "key": "/home/gavin/saves/eos-adminui/etc/ssl/10.9.5.6.key"
   },
   "mongo": {
     "host": "10.9.5.23",
@@ -13,5 +13,10 @@
     "username": "",
     "password": ""
   },
-  "cache": "/home/gavin/eos-data"
+  "cache": "/home/gavin/eos-data",
+  "logLevel": "debug",
+  "core": {
+    "core_addr": "localhost",
+    "core_port": 5267
+  }
 }
