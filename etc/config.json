@@ -13,10 +13,10 @@
     "username": "",
     "password": ""
   },
-  "cache": "/home/gavin/eos-data",
+  "cache": "/tmp/",
   "logLevel": "debug",
   "core": {
-    "core_addr": "localhost",
+    "core_addr": "http://localhost",
     "core_port": 5267
   }
 }

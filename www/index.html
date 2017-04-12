@@ -15,9 +15,20 @@
     <input type="submit" value="提交">
 </form>
 <form action="/api/files" method="post" enctype="multipart/form-data">
-    <input type="file" name="files">
+    <input type="file" name="files[]" multiple>
+    <input type="text" name="visibility" value="public">
+    <input type="text" name="crypto" value="aes256">
+    <input type="password" name="key" value="chen1399">
     <input type="submit" value="上传">
 </form>
+
+<button class="get-list">获取列表</button>
+
+<form action="/api/files">
+    <input type="text" name="uuid" value="52ff5db5-bfc3-468e-af41-30e0f2cca443">
+    <input type="submit" value="下载">
+</form>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $(function () {
@@ -32,6 +43,14 @@
       });
 
       return false;
+    });
+    $(".get-list").click(function () {
+      $.ajax({
+        type: "get",
+        url: "/api/filelist"
+      }).done(function (msg) {
+        console.log(msg);
+      });
     });
   });
 </script>
