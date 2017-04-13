@@ -1,11 +1,15 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './www/js/adminui.js',
+  entry: {
+    app: './www/js/adminui.js',
+    vendors: ['bootstrap', 'vue', 'jquery', 'tether', 'moment']
+  },
   output: {
-    path: path.resolve(__dirname, './www'),
-    publicPath: '/www/',
+    path: path.resolve(__dirname, './www/dist'),
+    publicPath: '/dist/',
     filename: 'app.js'
   },
   module: {
@@ -14,10 +18,15 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader'
+        })
       },
       {
         test: /\.js$/,
@@ -45,11 +54,22 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendor.js'}),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Tether: 'tether',
+      moment: 'moment'
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = '#source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({

@@ -4,55 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Saves</title>
-    <!--<link rel="stylesheet" href="/app.css">-->
-    <!--<script src="/vendor.js" type="text/javascript"></script>-->
-    <!--<script src="/app.js" type="text/javascript"></script>-->
-    <!--</head>-->
+    <link rel="stylesheet" href="/app.css">
+    <script src="/vendor.js" type="text/javascript"></script>
+    </head>
 <body>
-<form action="/api/auth" method="post">
-    <input type="text" value="gavin" name="username">
-    <input type="password" value="chen1399" name="password">
-    <input type="submit" value="提交">
-</form>
-<form action="/api/files" method="post" enctype="multipart/form-data">
-    <input type="file" name="files[]" multiple>
-    <input type="text" name="visibility" value="public">
-    <input type="text" name="crypto" value="aes256">
-    <input type="password" name="key" value="chen1399">
-    <input type="submit" value="上传">
-</form>
-
-<button class="get-list">获取列表</button>
-
-<form action="/api/files">
-    <input type="text" name="uuid" value="52ff5db5-bfc3-468e-af41-30e0f2cca443">
-    <input type="submit" value="下载">
-</form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  $(function () {
-    $("form:first-child").submit(function () {
-
-      $.ajax({
-        type: "POST",
-        url: "/api/auth",
-        data: $(this).serialize()
-      }).done(function (msg) {
-        console.log(msg);
-      });
-
-      return false;
-    });
-    $(".get-list").click(function () {
-      $.ajax({
-        type: "get",
-        url: "/api/filelist"
-      }).done(function (msg) {
-        console.log(msg);
-      });
-    });
-  });
-</script>
+<div id="app"></div>
+<script src="/app.js" type="text/javascript"></script>
 </body>
 </html>
