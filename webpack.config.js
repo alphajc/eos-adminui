@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     app: './www/js/adminui.js',
-    vendors: ['bootstrap', 'vue', 'jquery', 'tether', 'moment']
+    vendors: ['bootstrap', 'vue', 'vue-router', 'jquery', 'tether', 'moment']
   },
   output: {
     path: path.resolve(__dirname, './www/dist'),
