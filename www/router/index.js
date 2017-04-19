@@ -11,6 +11,7 @@ import Router from 'vue-router';
 import Files from '@/components/files';
 import Login from '@/components/login';
 import List from '@/components/list';
+import Form from '@/components/form';
 
 import '@/style/main.css';
 
@@ -44,7 +45,7 @@ export default new Router({
         },
         {
           path: 'form',
-          component: List
+          component: Form
         },
         {
           path: 'recent',
