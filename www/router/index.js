@@ -10,7 +10,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Files from '@/components/files';
 import Login from '@/components/login';
-import Main from '@/components/main';
+import List from '@/components/list';
 
 import '@/style/main.css';
 
@@ -40,15 +40,15 @@ export default new Router({
       children: [
         {
           path: 'list',
-          component: Main
+          component: List
         },
         {
           path: 'form',
-          component: Main
+          component: List
         },
         {
           path: 'recent',
-          component: Main
+          component: List
         }
       ],
       beforeEnter: (to, from, next) => {

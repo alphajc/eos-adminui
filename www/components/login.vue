@@ -53,9 +53,10 @@
                   //nothing
                 })
                 .fail(() => {
+                  alert('网络连接已断开．');
                   this.$router.replace('/login');
                 });
-            }, 20000);
+            }, 30000);
             this.$router.push('/files')
           })
           .fail((xhr) => {
