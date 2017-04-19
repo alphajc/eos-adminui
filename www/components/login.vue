@@ -1,28 +1,32 @@
 <template>
     <div class="background-shading">
         <div class="signin-form">
-            <div class="logo">SAVES</div>
+            <div class="logo align-middle p-2">SAVES</div>
             <div class="form-wrapper">
                 <div class="title">登录到Saves</div>
-                <form name="login" id="login-form" action="/login" method="post" class="ga-decorate-linking">
+                <div v-if="error" class="alert alert-danger">{{error.message}}</div>
+                <form name="login" id="login-form" v-on:submit.prevent="doLogin" class="ga-decorate-linking">
                     <table class="form-table">
                         <tbody><tr>
                             <td><label>用户名</label></td>
-                            <td><input type="text" class="form-input" name="username" data-validate="required" value="" autofocus="" placeholder="用户名"></td>
+                            <td><input type="text" class="form-input" v-model="username" data-validate="required" value="" autofocus="" placeholder="用户名"></td>
                         </tr>
                         <tr>
                             <td><label>密码</label></td>
-                            <td><input type="password" name="password" class="form-input" data-validate="required" placeholder="密码"></td>
+                            <td><input type="password" v-model="password" class="form-input" data-validate="required" placeholder="密码"></td>
                         </tr>
                         </tbody></table>
 
                     <div class="button-wrapper">
                         <button type="submit" class="btn with-spinner">
-                            <span class="zoom">登录</span>
-                            <div class="spinner-white"></div>
+                            <div v-if="loading" class="spinner-white process"></div>
+                            <span v-else class="zoom">登录</span>
                         </button>
                     </div>
                 </form>
+                <footer>
+                    <div class="h-25 d-inline-block">&copy;2017 all rights reserved.</div>
+                </footer>
             </div>
         </div>
     </div>
@@ -30,6 +34,45 @@
 
 <script>
   export default {
-    name: 'login'
+    data () {
+      return {
+        loading: null,
+        error: null,
+        username: null,
+        password: null
+      }
+    },
+    methods: {
+      doLogin () {
+        this.loading = true;
+        $.post('/api/auth', {username:this.username,password:this.password})
+          .done(() => {
+            setInterval(()=>{
+              $.get('/api/ping')
+                .done(() => {
+                  //nothing
+                })
+                .fail(() => {
+                  this.$router.replace('/login');
+                });
+            }, 20000);
+            this.$router.push('/files')
+          })
+          .fail((xhr) => {
+            this.error = JSON.parse(xhr.responseText);
+
+          })
+          .always(() => {
+            this.loading = false;
+          });
+      }
+    }
   }
 </script>
+
+<style>
+    footer div , .title {
+        text-align: center;
+        width: 100%;
+    }
+</style>

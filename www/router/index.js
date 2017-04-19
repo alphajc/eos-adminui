@@ -8,8 +8,11 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/home';
+import Files from '@/components/files';
 import Login from '@/components/login';
+import Main from '@/components/main';
+
+import '@/style/main.css';
 
 Vue.use(Router);
 
@@ -17,8 +20,46 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
+      beforeEnter: (to, from, next) => {
+        $.get('/api/auth')
+          .done(function () {
+            next('/files');
+          })
+          .fail(function () {
+            next('/login');
+          });
+      }
+    },
+    {
+      path: '/login',
       component: Login
+    },
+    {
+      path: '/files',
+      component: Files,
+      children: [
+        {
+          path: 'list',
+          component: Main
+        },
+        {
+          path: 'form',
+          component: Main
+        },
+        {
+          path: 'recent',
+          component: Main
+        }
+      ],
+      beforeEnter: (to, from, next) => {
+        $.get('/api/auth')
+          .done(function () {
+            next();
+          })
+          .fail(function () {
+            next('/login');
+          });
+      }
     }
   ]
 });
