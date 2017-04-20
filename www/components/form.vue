@@ -53,6 +53,7 @@
                     </div>
                     <fieldset class="form-group">
                         <legend>加密属性</legend>
+
                         <div class="row">
                             <div class="col-sm-2">可见性</div>
                             <div class="col-sm-10">
@@ -127,7 +128,8 @@
           contentType: false
         })
           .done((data) => {
-            $("#promptModalLabel").text("上传结果");
+            this.$parent.modal_title = "上传结果";
+            this.$parent.results = data;
             console.log(data);
             $("#myModal").modal('show');
           })

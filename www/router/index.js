@@ -24,7 +24,7 @@ export default new Router({
       beforeEnter: (to, from, next) => {
         $.get('/api/auth')
           .done(function () {
-            next('/files');
+            next('/files/list');
           })
           .fail(function () {
             next('/login');
