@@ -8,12 +8,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" v-on:click="getDocuments" href="javascript:void(0);">
+                    <a class="nav-link disabled" v-on:click="getDocuments" href="javascript:void(0);">
                         <i class="fa fa-file-text-o" aria-hidden="true">　文档</i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" v-on:click="getImages" href="javascript:void(0);">
+                    <a class="nav-link disabled" v-on:click="getImages" href="javascript:void(0);">
                         <i class="fa fa-file-image-o" aria-hidden="true">　图片</i>
                     </a>
                 </li>
@@ -27,7 +27,10 @@
         </div>
         <div class="col-md-10 push-md-2 col-12">
             <div class="main container-fluid" id="content">
-                <div v-if="error" class="alert alert-danger">{{error.message}}</div>
+                <div v-if="error" class="alert alert-danger">
+                    <strong>{{error.code || error.errno}}</strong>
+                    {{error.syscall}} {{error.address}}:{{error.port}} 请联系服务器管理员！
+                </div>
                 <table class="table" v-if="items">
                     <thead class="thead-default">
                     <tr>
@@ -95,6 +98,7 @@
         e.preventDefault();
         $(this).tab('show');
       });
+      $('.navbar-nav .list').tab('show');
       this.getAll();
     }
   }

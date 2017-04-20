@@ -10,14 +10,14 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerSaves">
                 <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                    <li class="nav-item active">
+                    <li class="list nav-item active">
                         <router-link class="nav-link" to="/files/list">文件列表<span class="sr-only">(current)</span>
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="upload nav-item">
                         <router-link class="nav-link" to="/files/form">文件上传</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="recent nav-item">
                         <router-link class="nav-link" to="/files/recent">我最近用过的</router-link>
                     </li>
                 </ul>
