@@ -38,8 +38,8 @@
       return {
         loading: null,
         error: null,
-        username: null,
-        password: null
+        username: "",
+        password: ""
       }
     },
     methods: {
@@ -60,8 +60,8 @@
             this.$router.push('/files')
           })
           .fail((xhr) => {
-            this.error = JSON.parse(xhr.responseText);
-
+            this.error = {message: xhr.statusText};
+            console.log(this.error);
           })
           .always(() => {
             this.loading = false;
